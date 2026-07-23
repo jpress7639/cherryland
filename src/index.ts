@@ -1,4 +1,5 @@
 import {createClient, type SanityClient} from '@sanity/client';
+import {getSanityRuntimeConfig} from './sanity.config';
 
 export interface SiteSettings {
   title: string;
@@ -10,13 +11,7 @@ export function createSanityWebsiteClient(overrides?: {
   dataset?: string;
   apiVersion?: string;
 }): SanityClient {
-  const projectId = overrides?.projectId ?? process.env.SANITY_PROJECT_ID;
-  const dataset = overrides?.dataset ?? process.env.SANITY_DATASET;
-  const apiVersion = overrides?.apiVersion ?? process.env.SANITY_API_VERSION ?? '2025-01-01';
-
-  if (!projectId || !dataset) {
-    throw new Error('SANITY_PROJECT_ID and SANITY_DATASET are required to generate the site.');
-  }
+  const {projectId, dataset, apiVersion} = getSanityRuntimeConfig(overrides);
 
   return createClient({
     projectId,
