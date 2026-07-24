@@ -1,0 +1,30 @@
+{
+  "name": "cherryland",
+  "version": "1.0.0",
+  "description": "New Headless CMS Website for Cherryland",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run typecheck",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpress7639/cherryland.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jpress7639/cherryland/issues"
+  },
+  "homepage": "https://github.com/jpress7639/cherryland#readme",
+  "dependencies": {
+    "@sanity/client": "^7.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "^7.0.2"
+  }
+}
