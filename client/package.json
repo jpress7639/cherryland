@@ -1,38 +1,35 @@
 {
   "name": "cherryland",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.0",
-  "main": "package.json",
-  "license": "UNLICENSED",
   "scripts": {
-    "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy",
-    "dev": "sanity dev",
-    "start": "sanity start"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "studio": "sanity dev",
+    "typegen": "sanity schema extract --enforce-required-fields --path sanity/extract.json && sanity typegen generate",
+    "seed": "tsx --env-file=.env.local scripts/seed.ts",
+    "seed:dry": "tsx scripts/seed.ts --dry"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
-    "@sanity/vision": "^6.6.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "sanity": "^6.6.0",
-    "styled-components": "^6.1.18"
+    "@portabletext/react": "^3.1.0",
+    "@portabletext/types": "^2.0.13",
+    "@sanity/client": "^6.22.0",
+    "@sanity/webhook": "^4.0.4",
+    "groq": "^6.20.0",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^6.0.0",
-    "@types/node": "^26.1.1",
-    "@types/react": "^19.2.17",
-    "eslint": "^9.28",
-    "prettier": "^3.5",
-    "typescript": "^5.9.3"
-  },
-  "prettier": {
-    "bracketSpacing": false,
-    "printWidth": 100,
-    "semi": false,
-    "singleQuote": true
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/styled-components": "^5.1.36",
+    "sanity": "^3.62.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.0"
   }
 }
